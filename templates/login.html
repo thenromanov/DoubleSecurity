@@ -1,0 +1,37 @@
+{% extends "base.html"%}
+
+{% block content%}
+    <form action="" novalidate method="post" class="astronautForm">
+        {{ form.hidden_tag() }}
+        <h2><img src="/static/img/MARS.png" alt="Not found"> Аварийный доступ</h2>
+        <p>
+            {{ form.astronautId.label }}<br>
+            {{ form.astronautId(class="form-control") }}<br>
+            {% for error in form.astronautId.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.astronautToken.label }}<br>
+            {{ form.astronautToken(class="form-control", type="password") }}<br>
+            {% for error in form.astronautToken.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.capitanId.label }}<br>
+            {{ form.capitanId(class="form-control") }}<br>
+            {% for error in form.capitanId.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.capitanToken.label }}<br>
+            {{ form.capitanToken(class="form-control", type="password") }}<br>
+            {% for error in form.capitanToken.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    </form>
+{% endblock %}
